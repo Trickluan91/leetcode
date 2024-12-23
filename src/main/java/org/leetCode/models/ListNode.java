@@ -1,4 +1,4 @@
-package org.leetCode.AddTwoNumbers;
+package org.leetCode.models;
 
 public class ListNode {
      public int val;

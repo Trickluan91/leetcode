@@ -1,4 +1,6 @@
-package org.leetCode.AddTwoNumbers;
+package org.leetCode.linkedList;
+
+import org.leetCode.models.ListNode;
 
 public class AddTwoNumbers {
     public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
