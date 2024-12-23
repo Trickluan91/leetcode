@@ -5,41 +5,38 @@ import org.junit.jupiter.api.Test;
 import org.leetCode.AddTwoNumbers.AddTwoNumbers;
 import org.leetCode.AddTwoNumbers.ListNode;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class AddTwoNumbersTest {
     @Test
     public void test1(){
-//        ListNode result = AddTwoNumbers.addTwoNumbers(arrayToListNode(new int[]{2,4,3}), arrayToListNode(new int[]{5,6,4}));
-//        Assertions.assertArrayEquals(listNodeToArray(result), new int[]{7,0,8});
-//
-//        count = FindLeastNum.findLeastNumOfUniqueInts(new int[]{3,1,7,2,4,2,5}, 5);
-//        Assertions.assertEquals(count, 1);
-//
-//        count = FindLeastNum.findLeastNumOfUniqueInts(new int[]{4,3,1,1,3,3,2}, 3);
-//        Assertions.assertEquals(count, 2);
+        ListNode result = AddTwoNumbers.addTwoNumbers(arrayToListNode(new int[]{2,4,3}), arrayToListNode(new int[]{5,6,4}));
+        Assertions.assertArrayEquals(new int[]{7,0,8}, listNodeToArray(result, 3));
+
+        ListNode result1 = AddTwoNumbers.addTwoNumbers(arrayToListNode(new int[]{0}), arrayToListNode(new int[]{0}));
+        Assertions.assertArrayEquals(new int[]{0}, listNodeToArray(result1, 1));
+
+        ListNode result2 = AddTwoNumbers.addTwoNumbers(arrayToListNode(new int[]{9,9,9,9,9,9,9}), arrayToListNode(new int[]{9,9,9,9}));
+        Assertions.assertArrayEquals(new int[]{8,9,9,9,0,0,0,1}, listNodeToArray(result2, 8));
     }
 
-//    private ListNode arrayToListNode(int[] intArr)
-//    {
-//        List<ListNode> list = new ArrayList<>();
-//        for (int j : intArr) {
-//            list.add(new ListNode(j));
-//        }
-//
-//        for (int i = list.size() - 1; i >= 0; i--) {
-//
-//        }
-//    }
-//
-//    private ListNode addToListNode()
-//    {
-//
-//    }
-//
-//    private int[] listNodeToArray(ListNode listNode)
-//    {
-//
-//    }
+    private ListNode arrayToListNode(int[] arr) {
+        ListNode root = null;
+        for (int i = arr.length - 1; i >= 0; i--) {
+            ListNode temp = new ListNode(arr[i]);
+            temp.next = root;
+            root = temp;
+        }
+        return root;
+    }
+
+    private int[] listNodeToArray(ListNode listNode, int length)
+    {
+        int[] array = new int[length];
+        int count = 0;
+        while(listNode != null){
+            array[count] = listNode.val;
+            count++;
+            listNode = listNode.next;
+        }
+        return array;
+    }
 }

@@ -9,7 +9,7 @@ public class AddTwoNumbers {
         int val = l1.val + l2.val + add;
         int addNext = 0;
         if(val >= 10) {
-            val =- 10;
+            val -= 10;
             addNext = 1;
         }
 
